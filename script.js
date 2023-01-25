@@ -65,13 +65,10 @@
 
 
 
-const url = 'https://purpleschool.ru/course/javascript'
+// 
 
-const url1 = url.split(':')
-console.log(url1[0])
+const mas = ['!', 'JS', 'люблю', 'Я' ]
 
-const url2 = url.split('/')
-console.log(url2[url2.indexOf('purpleschool.ru')])
-
-const url3 = url2.slice(url2.indexOf('purpleschool.ru') + 1, url2.length)
-console.log('/' + url3.join('/'))
+for (let i = mas.length - 1; i >= 0; i--) {
+    console.log(mas[i])
+}
