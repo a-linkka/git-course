@@ -67,8 +67,17 @@
 
 // 
 
-const mas = ['!', 'JS', 'люблю', 'Я' ]
+// const mas = ['!', 'JS', 'люблю', 'Я' ]
 
-for (let i = mas.length - 1; i >= 0; i--) {
-    console.log(mas[i])
-}
+// for (let i = mas.length - 1; i >= 0; i--) {
+//     console.log(mas[i])
+// }
+
+const users = [
+    {name: 'Сашка', age: 20},
+    {name: 'Алинка', age: 21},
+    {name: 'Лилька', age: 16},
+    {name: 'Макс', age: 2}
+]
+
+console.log(users.sort((a, b) => a.age - b.age))
