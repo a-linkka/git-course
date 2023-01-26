@@ -73,11 +73,34 @@
 //     console.log(mas[i])
 // }
 
+// const users = [
+//     {name: 'Сашка', age: 20},
+//     {name: 'Алинка', age: 21},
+//     {name: 'Лилька', age: 16},
+//     {name: 'Макс', age: 2}
+// ]
+
+// console.log(users.sort((a, b) => a.age - b.age))
+
 const users = [
-    {name: 'Сашка', age: 20},
-    {name: 'Алинка', age: 21},
-    {name: 'Лилька', age: 16},
-    {name: 'Макс', age: 2}
+    {
+        name: 'Сашка',
+        surname: 'Ляпанов',
+        age: 20,
+        skills: ['Джава-разработчик','Спортсмен']
+    },
+    {
+        name: 'Алинка',
+        surname: 'Белова',
+        age: 20,
+        skills: ['Frontend-разработчик','Дизайн']
+    }
 ]
 
-console.log(users.sort((a, b) => a.age - b.age))
+const updateUsers = users.map(user => {
+    return {
+        fullname: `${user.name}` + ' ' + `${user.surname}`,
+        skillNum: user.skills.length
+    }
+})
+console.log(updateUsers)
