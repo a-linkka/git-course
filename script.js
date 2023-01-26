@@ -82,25 +82,59 @@
 
 // console.log(users.sort((a, b) => a.age - b.age))
 
-const users = [
-    {
-        name: 'Сашка',
-        surname: 'Ляпанов',
-        age: 20,
-        skills: ['Джава-разработчик','Спортсмен']
-    },
-    {
-        name: 'Алинка',
-        surname: 'Белова',
-        age: 20,
-        skills: ['Frontend-разработчик','Дизайн']
-    }
-]
+// const users = [
+//     {
+//         name: 'Сашка',
+//         surname: 'Ляпанов',
+//         age: 20,
+//         skills: ['Джава-разработчик','Спортсмен']
+//     },
+//     {
+//         name: 'Алинка',
+//         surname: 'Белова',
+//         age: 20,
+//         skills: ['Frontend-разработчик','Дизайн']
+//     }
+// ]
 
-const updateUsers = users.map(user => {
-    return {
-        fullname: `${user.name}` + ' ' + `${user.surname}`,
-        skillNum: user.skills.length
+// const updateUsers = users.map(user => {
+//     return {
+//         fullname: `${user.name}` + ' ' + `${user.surname}`,
+//         skillNum: user.skills.length
+//     }
+// })
+// console.log(updateUsers)
+
+const wallet = { 
+    balance: 0,
+    operations: [],
+    bigBalance: function(money, nameOperation){
+        this.balance += money;
+        this.operations.push({ 
+                reason: `${nameOperation}`,
+                sum: money
+            });
+        return true
+    },
+    minBalance: function(money, nameOperation) {
+        if(this.balance - money >= 0) {
+            this.balance -= money,
+            this.operations.push({ 
+                    reason: `${nameOperation}`,
+                    sum: money
+                });
+            return true
+        } else {
+            return false
+        }
+    },
+    allOperation: function() {
+        return this.operations.length
     }
-})
-console.log(updateUsers)
+}
+
+console.log(wallet.bigBalance(1000, 'Зарплата'));
+console.log(`Текущий баланс: ${wallet.balance}`);
+console.log(wallet.minBalance(200, 'Уплата налогов'));
+console.log(`Текущий баланс: ${wallet.balance}`);
+console.log(`Количество операций: ${wallet.allOperation()}`)
