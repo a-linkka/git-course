@@ -105,36 +105,71 @@
 // })
 // console.log(updateUsers)
 
-const wallet = { 
-    balance: 0,
-    operations: [],
-    bigBalance: function(money, nameOperation){
-        this.balance += money;
-        this.operations.push({ 
-                reason: `${nameOperation}`,
-                sum: money
-            });
-        return true
+// const wallet = { 
+//     balance: 0,
+//     operations: [],
+//     bigBalance: function(money, nameOperation){
+//         this.balance += money;
+//         this.operations.push({ 
+//                 reason: `${nameOperation}`,
+//                 sum: money
+//             });
+//         return true
+//     },
+//     minBalance: function(money, nameOperation) {
+//         if(this.balance - money >= 0) {
+//             this.balance -= money,
+//             this.operations.push({ 
+//                     reason: `${nameOperation}`,
+//                     sum: money
+//                 });
+//             return true
+//         } else {
+//             return false
+//         }
+//     },
+//     allOperation: function() {
+//         return this.operations.length
+//     }
+// }
+
+// console.log(wallet.bigBalance(1000, 'Зарплата'));
+// console.log(`Текущий баланс: ${wallet.balance}`);
+// console.log(wallet.minBalance(200, 'Уплата налогов'));
+// console.log(`Текущий баланс: ${wallet.balance}`);
+// console.log(`Количество операций: ${wallet.allOperation()}`)
+
+const company = {
+    name: 'ООО Агро',
+    employees: [
+        {
+            name: 'Света',
+            position: 'Разработчик',
+        },
+        {
+            name: 'Диана',
+            position: 'Разработчик',
+        },
+        {
+            name: 'Дима',
+            position: 'Разработчик',
+        },
+    ],
+    ceo: {
+        name: 'Вася',
     },
-    minBalance: function(money, nameOperation) {
-        if(this.balance - money >= 0) {
-            this.balance -= money,
-            this.operations.push({ 
-                    reason: `${nameOperation}`,
-                    sum: money
-                });
-            return true
-        } else {
-            return false
-        }
+    nameCompany: function () {
+        return `${this.name}`
     },
-    allOperation: function() {
-        return this.operations.length
+    ceoName: function(){
+        return `${this.ceo.name}`
+    },
+    nameEmployees: function(){
+        const employees = this.employees.map(el => el.name)
+        return employees
     }
 }
 
-console.log(wallet.bigBalance(1000, 'Зарплата'));
-console.log(`Текущий баланс: ${wallet.balance}`);
-console.log(wallet.minBalance(200, 'Уплата налогов'));
-console.log(`Текущий баланс: ${wallet.balance}`);
-console.log(`Количество операций: ${wallet.allOperation()}`)
+console.log(company.nameCompany())
+console.log(company.ceoName())
+console.log(company.nameEmployees())
