@@ -139,37 +139,78 @@
 // console.log(`Текущий баланс: ${wallet.balance}`);
 // console.log(`Количество операций: ${wallet.allOperation()}`)
 
-const company = {
-    name: 'ООО Агро',
-    employees: [
-        {
-            name: 'Света',
-            position: 'Разработчик',
-        },
-        {
-            name: 'Диана',
-            position: 'Разработчик',
-        },
-        {
-            name: 'Дима',
-            position: 'Разработчик',
-        },
-    ],
-    ceo: {
-        name: 'Вася',
-    },
-    nameCompany: function () {
-        return `${this.name}`
-    },
-    ceoName: function(){
-        return `${this.ceo.name}`
-    },
-    nameEmployees: function(){
-        const employees = this.employees.map(el => el.name)
-        return employees
+// const company = {
+//     name: 'ООО Агро',
+//     employees: [
+//         {
+//             name: 'Света',
+//             position: 'Разработчик',
+//         },
+//         {
+//             name: 'Диана',
+//             position: 'Разработчик',
+//         },
+//         {
+//             name: 'Дима',
+//             position: 'Разработчик',
+//         },
+//     ],
+//     ceo: {
+//         name: 'Вася',
+//     },
+//     nameCompany: function () {
+//         return `${this.name}`
+//     },
+//     ceoName: function(){
+//         return `${this.ceo.name}`
+//     },
+//     nameEmployees: function(){
+//         const employees = this.employees.map(el => el.name)
+//         return employees
+//     }
+// }
+
+// console.log(company.nameCompany())
+// console.log(company.ceoName())
+// console.log(company.nameEmployees())
+
+// function a() {
+//     console.log(arguments[0]);
+// }
+// a(1);
+
+// function c() {
+//     function b() {
+//         console.log(this);
+//     }
+//     b()
+// }
+// c()
+
+
+const user = {
+    name: 'Alina',
+    surname: 'Belova',
+    email: 'alinka@mail.ru',
+    password: '1111'    
+}
+
+// const newPas = '2222'
+
+function removePassword (reset, newPass = undefined) {
+    if (reset) {
+        this.password = undefined,
+        console.log(`Пароль пользователя ${this.name} был удален. Текущий пароль ${this.password}`)
+    } else {
+        this.password = newPass,
+        console.log (`Пароль пользователя ${this.name} был изменен. Текущий пароль ${this.password}`)
     }
 }
 
-console.log(company.nameCompany())
-console.log(company.ceoName())
-console.log(company.nameEmployees())
+removePassword.call(user, true);
+removePassword.call(user, false, 3333);
+removePassword.apply(user, [true]);
+removePassword.apply(user, [false, 4444]);
+const removePass = removePassword.bind(user);
+removePass(true);
+removePass(false, 5555);
