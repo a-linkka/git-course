@@ -188,29 +188,52 @@
 // c()
 
 
-const user = {
-    name: 'Alina',
-    surname: 'Belova',
-    email: 'alinka@mail.ru',
-    password: '1111'    
-}
+// const user = {
+//     name: 'Alina',
+//     surname: 'Belova',
+//     email: 'alinka@mail.ru',
+//     password: '1111'    
+// }
 
-// const newPas = '2222'
+// // const newPas = '2222'
 
-function removePassword (reset, newPass = undefined) {
-    if (reset) {
-        this.password = undefined,
-        console.log(`Пароль пользователя ${this.name} был удален. Текущий пароль ${this.password}`)
-    } else {
-        this.password = newPass,
-        console.log (`Пароль пользователя ${this.name} был изменен. Текущий пароль ${this.password}`)
+// function removePassword (reset, newPass = undefined) {
+//     if (reset) {
+//         this.password = undefined,
+//         console.log(`Пароль пользователя ${this.name} был удален. Текущий пароль ${this.password}`)
+//     } else {
+//         this.password = newPass,
+//         console.log (`Пароль пользователя ${this.name} был изменен. Текущий пароль ${this.password}`)
+//     }
+// }
+
+// removePassword.call(user, true);
+// removePassword.call(user, false, 3333);
+// removePassword.apply(user, [true]);
+// removePassword.apply(user, [false, 4444]);
+// const removePass = removePassword.bind(user);
+// removePass(true);
+// removePass(false, 5555);
+
+
+const userInfo = {
+    balance: 0,
+    operations: 0,
+    increse(sum) {
+        this.balance += sum;
+        this.operations++;
     }
 }
 
-removePassword.call(user, true);
-removePassword.call(user, false, 3333);
-removePassword.apply(user, [true]);
-removePassword.apply(user, [false, 4444]);
-const removePass = removePassword.bind(user);
-removePass(true);
-removePass(false, 5555);
+function user() {
+    const userObj = userInfo;
+    return function() {
+        return userObj;
+    }
+}
+
+const user1 = user();
+user1().increse(100);
+user1().increse(100);
+console.log(user1())
+
