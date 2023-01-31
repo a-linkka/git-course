@@ -47,14 +47,22 @@
 // console.log(el1)
 // const el2 = document.querySelector('.one ~ div').innerText
 // console.log(el2)
-console.log(document.querySelectorAll('.one')[0].innerText);
-console.log(document.querySelectorAll('.one')[1].innerText);
+// console.log(document.querySelectorAll('.one')[0].innerText);
+// console.log(document.querySelectorAll('.one')[1].innerText);
 // const el3 = document.querySelector('#two').innerText
 // console.log(el3)
-console.log(document.getElementById('two').innerText)
-const el4 = document.querySelector('[user-id="4"]').innerText
-console.log(el4)
+// console.log(document.getElementById('two').innerText)
+// const el4 = document.querySelector('[user-id="4"]').innerText
+// console.log(el4)
 
+const panelText = 'Панель';
+const panelClass = 'button';
+const newEl = document.createElement('div');
+newEl.setAttribute('user-id', 1);
+newEl.classList.add('panel');
+// newEl.innerText = 'Кнопка';
+newEl.innerHTML = `<button class='${panelClass}'>${panelText}</button>`
+document.querySelector('.test').appendChild(newEl);
 
 
 
