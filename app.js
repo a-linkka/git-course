@@ -55,14 +55,20 @@
 // const el4 = document.querySelector('[user-id="4"]').innerText
 // console.log(el4)
 
-const panelText = 'Панель';
-const panelClass = 'button';
-const newEl = document.createElement('div');
-newEl.setAttribute('user-id', 1);
-newEl.classList.add('panel');
-// newEl.innerText = 'Кнопка';
-newEl.innerHTML = `<button class='${panelClass}'>${panelText}</button>`
-document.querySelector('.test').appendChild(newEl);
+// const panelText = 'Панель';
+// const panelClass = 'button';
+// const newEl = document.createElement('div');
+// newEl.setAttribute('user-id', 1);
+// newEl.classList.add('panel');
+// // newEl.innerText = 'Кнопка';
+// newEl.innerHTML = `<button class='${panelClass}'>${panelText}</button>`
+// document.querySelector('.test').appendChild(newEl);
 
 
-
+localStorage.setItem('token', '1111');
+localStorage.setItem('token1', 1);
+localStorage.setItem('token', true);
+const token1 = localStorage.getItem('token1');
+console.log(typeof token1);
+localStorage.removeItem('token1');
+localStorage.clear();
